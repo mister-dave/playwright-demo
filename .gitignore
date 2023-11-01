@@ -1,0 +1,12 @@
+# Ignore log files
+*.log
+
+# Ignore temporary files
+.tmp/
+
+# Ignore build artifacts
+/build/
+/dist/
+
+# Ignore test results
+*.history/
