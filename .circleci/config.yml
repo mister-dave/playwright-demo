@@ -28,7 +28,7 @@ jobs:
       - checkout
       - run:
           name: "Install Playwright"
-          command: "npx playwright install --with-deps chromium"
+          command: "npm install; npm install @playwright/test; npx playwright install --with-deps chromium"
       - run:
           name: "Run E2E test"
           command: "npx playwright test"
