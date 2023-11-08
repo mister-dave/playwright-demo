@@ -2,6 +2,11 @@
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
 
+executors:
+  pw-jammy-development:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.39.0-jammy
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/configuration-reference/#jobs
 jobs:
@@ -17,6 +22,16 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+  run-test:
+    executor: pw-jammy-development
+    steps:
+      - checkout
+      - run:
+          name: "Install Playwright"
+          command: "npx playwright install --with-deps chromium"
+      - run:
+          name: "Run E2E test"
+          command: "npx playwright test"
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -24,3 +39,6 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+  run-test-workflow:
+    jobs:
+      - run-test
