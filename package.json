@@ -1,0 +1,24 @@
+{
+  "name": "playwright-demo",
+  "version": "1.0.0",
+  "description": "Demonstrating Playwright functionality with Node on GetDirect's site.",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "npx playwright test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mister-dave/playwright-demo.git"
+  },
+  "author": "David Tolman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mister-dave/playwright-demo/issues"
+  },
+  "homepage": "https://github.com/mister-dave/playwright-demo#readme",
+  "devDependencies": {
+    "dotenv": "^16.3.1"
+  }
+}

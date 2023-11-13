@@ -24,6 +24,9 @@ jobs:
           command: "echo Hello, World!"
   run-test:
     executor: pw-jammy-development
+    environment:
+      USERNAME: $USERNAME
+      PASSWORD: $PASSWORD
     steps:
       - checkout
       - run:

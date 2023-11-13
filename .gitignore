@@ -10,3 +10,7 @@
 
 # Ignore test results
 *.history/
+test-results/
+
+node_modules/
+.env
