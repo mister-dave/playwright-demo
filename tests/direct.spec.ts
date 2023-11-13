@@ -10,12 +10,13 @@ test('has title', async ({ page }) => {
 
 test('can authenticate', async ({ page }) => {
   await page.goto("https://staging.getdirect.io/sign-in");
-  
+
+  console.log("USERNAME", process.env.PW_USERNAME);
   const USERNAME = process.env.USERNAME;
   console.log("$USERNAME");
   const PASSWORD = process.env.PASSWORD;
   console.log("$PASSWORD");
-  
+
   if (USERNAME !== undefined) {
     await elementSelectors.usernameInput(page).fill(USERNAME);
   } else {
@@ -30,5 +31,5 @@ test('can authenticate', async ({ page }) => {
 
   await elementSelectors.signInButton(page).press('Enter');
 
-  // await page.waitForTimeout(8000);  
+  // await page.waitForTimeout(8000);
 });

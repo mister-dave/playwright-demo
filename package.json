@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/mister-dave/playwright-demo#readme",
   "devDependencies": {
+    "@types/node": "^20.9.0",
     "dotenv": "^16.3.1"
   }
 }
