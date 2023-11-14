@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import { test, expect } from '@playwright/test';
 import { elementSelectors } from '../selectors/elementSelectors';
 
@@ -12,10 +11,9 @@ test('can authenticate', async ({ page }) => {
   await page.goto("https://staging.getdirect.io/sign-in");
 
   console.log("USERNAME", process.env.PW_USERNAME);
-  const USERNAME = process.env.USERNAME;
-  console.log("$USERNAME");
-  const PASSWORD = process.env.PASSWORD;
-  console.log("$PASSWORD");
+  const USERNAME = process.env.PW_USERNAME;
+  const PASSWORD = process.env.PW_PASSWORD;
+  console.log(PASSWORD);
 
   if (USERNAME !== undefined) {
     await elementSelectors.usernameInput(page).fill(USERNAME);
