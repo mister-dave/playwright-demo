@@ -14,3 +14,5 @@ test-results/
 
 node_modules/
 .env
+playwright-report/
+playwright/.auth/

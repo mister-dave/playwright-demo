@@ -1,33 +1,31 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 import { elementSelectors } from '../selectors/elementSelectors';
 
-test('has title', async ({ page }) => {
+test.beforeEach(async ({ page }) => {
+  await page.goto('/my-organizations');
+});
+
+test.skip('has title', async ({ page }) => {
   await page.goto("https://staging.getdirect.io/sign-in");
 
   await expect(page).toHaveTitle("Direct™ Property Management Software | Hotels and Vacation Rentals");
 });
 
-test('can authenticate', async ({ page }) => {
-  await page.goto("https://staging.getdirect.io/sign-in");
+test.skip('Can authenticate', async ({ page }) => {
+  // await authenticate(page);
+});
 
-  console.log("USERNAME", process.env.PW_USERNAME);
-  const USERNAME = process.env.PW_USERNAME;
-  const PASSWORD = process.env.PW_PASSWORD;
-  console.log(PASSWORD);
+test('Message a client', async ({ page }) => {
+  await page.goto('https://staging.getdirect.io/my-organizations');
 
-  if (USERNAME !== undefined) {
-    await elementSelectors.usernameInput(page).fill(USERNAME);
-  } else {
-    console.error('USERNAME environment variable is not set or is undefined.');
-  }
+  // Get the current date and time in ISO format
+  const timestamp = new Date().toISOString();
 
-  if (PASSWORD !== undefined) {
-    await elementSelectors.usernameInput(page).fill(PASSWORD);
-  } else {
-    console.error('USERNAME environment variable is not set or is undefined.');
-  }
+  await page.getByRole('link', { name: 'Cabo Rentals By Jane Roesch LLC Active' }).click();
+  await page.getByRole('link', { name: 'Inbox' }).click();
+  await page.locator('.ProseMirror').fill(timestamp);
+  await page.getByRole('button', { name: 'Send' }).click();
+  await page.waitForTimeout(5000); // timeout added for demo purposes
 
-  await elementSelectors.signInButton(page).press('Enter');
-
-  // await page.waitForTimeout(8000);
+  await expect(page.getByText(timestamp)).toBeVisible();
 });

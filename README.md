@@ -1,18 +1,27 @@
 # playwright-demo
 
-#### Introduction
-This is a Playwright demonstration using Node. It tests this 
+## Introduction
+This is a Playwright demonstration using Node. It tests [Direct's staging platform](https://staging.getdirect.io/sign-in) by running a few critical path validations.
 
-#### Dependencies
+## Dependencies
+* Node
+* Playwright
+* Playwright/test
+* Dotenv
+
+## Instructions
 In your project root directory:
-* install Playwright 
-* install Playwright test 
-* install Dotenv
+  
+Install Playwright
 
-#### Instructions
-* Run Playwright
-  * `npx playwright test`
-  * `npx playwright --ui`
+install Playwright test
 
-#### Notes
+install Dotenv
+
+Run Playwright:
+  for headless tests: `npx playwright test`
+  for headed, interactive tests: `npx playwright --ui`
+  To authenticate once and use the token in subsequent tests, ensure that global.setup.ts is ran first.
+
+## Notes
 This project has no intrinsic app code and therefore needs no entry point. `"main": "index.js",` has been removed from package.json.
