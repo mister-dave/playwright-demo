@@ -49,28 +49,20 @@ export default defineConfig({
       testMatch: '**/*.setup.ts',
     },
 
-    // {
-    //   name: 'set token to storage state',
-    //   testMatch: '**/*loggedin.spec.ts',
-    //   dependencies: ['setup'],
-    //   use: {
-    //     storageState: STORAGE_STATE,
-    //   },
-    // },
-
     {
       name: 'e2e tests',
-      testIgnore: ['**/*loggedin.spec.ts', '**/*.setup.ts'],
+      testMatch: '**/direct.spec.ts',
+      dependencies: ['setup'],
       use: {
         storageState: STORAGE_STATE,
       }
     },
 
-    { 
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-      dependencies: ['setup'],
-    },
+    // { 
+    //   name: 'chromium',
+    //   use: { ...devices['Desktop Chrome'] },
+    //   dependencies: ['setup'],
+    // },
 
     // {
     //   name: 'firefox',
