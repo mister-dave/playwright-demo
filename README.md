@@ -10,17 +10,17 @@ This is a Playwright demonstration using Node. It tests [Direct's staging platfo
 * Dotenv
 
 ## Instructions
-In your project root directory:
+#### In your project root directory:
   
-Install Playwright
+* Install Playwright
+* install Playwright test
+* install Dotenv
 
-install Playwright test
+#### Run Playwright:
+  for headless tests:  `~/playwright-demo $ npx playwright test`
 
-install Dotenv
-
-Run Playwright:
-  for headless tests: `npx playwright test`
-  for headed, interactive tests: `npx playwright --ui`
+  for headed, interactive tests:  `~/playwright-demo $ npx playwright --ui`
+  
   To authenticate once and use the token in subsequent tests, ensure that global.setup.ts is ran first.
 
 ## Notes

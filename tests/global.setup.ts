@@ -25,7 +25,7 @@ setup('sign in', async ({ page }) => {
 
   await expect(page.getByText('My Organizations', { exact: true })).toBeVisible();
 
-  console.log("===== global setup sign in function =====")
+  console.log("===== Global setup; auth token stored =====")
 
   await page.context().storageState({ path: STORAGE_STATE });
 });

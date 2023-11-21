@@ -17,15 +17,15 @@ test.skip('Can authenticate', async ({ page }) => {
 
 test('Message a client', async ({ page }) => {
   await page.goto('https://staging.getdirect.io/my-organizations');
+  await page.waitForTimeout(2000); // timeout added for demo purposes
 
-  // Get the current date and time in ISO format
   const timestamp = new Date().toISOString();
 
   await page.getByRole('link', { name: 'Cabo Rentals By Jane Roesch LLC Active' }).click();
   await page.getByRole('link', { name: 'Inbox' }).click();
   await page.locator('.ProseMirror').fill(timestamp);
   await page.getByRole('button', { name: 'Send' }).click();
-  await page.waitForTimeout(5000); // timeout added for demo purposes
+  await page.waitForTimeout(2000); // timeout added for demo purposes
 
   await expect(page.getByText(timestamp)).toBeVisible();
 });

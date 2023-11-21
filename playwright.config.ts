@@ -51,18 +51,18 @@ export default defineConfig({
 
     {
       name: 'e2e tests',
-      testMatch: '**/direct.spec.ts',
+      testMatch: '**/*.spec.ts',
       dependencies: ['setup'],
       use: {
         storageState: STORAGE_STATE,
       }
     },
 
-    // { 
-    //   name: 'chromium',
-    //   use: { ...devices['Desktop Chrome'] },
-    //   dependencies: ['setup'],
-    // },
+      // { 
+      //   name: 'chromium',
+      //   use: { ...devices['Desktop Chrome'] },
+      //   dependencies: ['setup'],
+      // },
 
     // {
     //   name: 'firefox',
